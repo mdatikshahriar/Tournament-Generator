@@ -1,8 +1,7 @@
-# Node.js & Passport Login
+# Tournament Generator
 
-This is a user login and registration app using Node.js, Express, Passport, Mongoose, EJS and some other packages.
 
-### Version: 2.0.0
+This is a tournament generator website created using Node.js, Express, Passport, Mongoose, EJS and some other packages.
 
 ### Usage
 
@@ -12,11 +11,8 @@ $ npm install
 
 ```sh
 $ npm start
-# Or run with Nodemon
-$ npm run dev
-
-# Visit http://localhost:5000
 ```
+# Visit http://localhost:3000
 
 ### MongoDB
 
