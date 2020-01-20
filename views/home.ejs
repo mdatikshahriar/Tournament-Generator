@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+</head>
+<body>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/home"> <%= account.accountName %> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/myTournaments">My Tournaments <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Settings</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <br>
+
+    <div class="jumbotron">
+        <h1 class="display-4">Hi, <%= account.accountName %> </h1>
+        <p class="lead">Welcome to Tournament Generator. Build your custom tournament or join a tournament.</p>
+        <hr class="my-4">
+        <div style="text-align: center;">
+            <a class="btn btn-secondary" href="/createTournament" role="button">Create Tournament</a>
+            <a class="btn btn-secondary" href="/joinTournament" role="button">Join a Tournament</a>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <div class="card border-dark mb-3" style="display: inline-block; max-width: 18rem; text-align: center;">
+            <div class="card-header">Tournaments Played</div>
+            <div class="card-body text-dark">
+            <h1 class="card-title">5</h1>
+            </div>
+        </div>
+
+        <div class="card border-dark mb-3" style="display: inline-block; max-width: 18rem; text-align: center;">
+            <div class="card-header">Tournaments Created</div>
+            <div class="card-body text-dark">
+            <h1 class="card-title">5</h1>
+            </div>
+        </div>
+
+        <div class="card border-dark mb-3" style="display: inline-block; max-width: 18rem; text-align: center;">
+            <div class="card-header">Tournaments Running</div>
+            <div class="card-body text-dark">
+            <h1 class="card-title">5</h1>
+            </div>
+        </div>
+
+        <div class="card border-dark mb-3" style="display: inline-block; max-width: 18rem; text-align: center;">
+            <div class="card-header">Past Tournaments</div>
+            <div class="card-body text-dark">
+            <h1 class="card-title">5</h1>
+            </div>
+        </div>
+    </div>
+
+</body>

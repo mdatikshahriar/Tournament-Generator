@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Tournament</title>
+</head>
+<body>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <h1>Create a tournament</h1>
+
+  <% include ./partials/messages %>
+
+  <br>
+  <br>
+
+  <form action="/createTournament" method="POST">
+    <div class="form-group">
+      <label for="tournamentName">Tournament Name</label>
+      <input 
+        type="text" 
+        name="tournamentName"
+        class="form-control" 
+        aria-describedby="emailHelp" 
+        placeholder="Enter Name"
+        value="<%= typeof tournamentName != 'undefined' ? tournamentName : '' %>"
+      />
+      <small class="form-text text-muted">Choose a nice name for your tournament.</small>
+    </div>
+    <div class="form-group">
+      <label for="tournamentDescription">Description</label>
+      <input 
+        type="text"
+        name="tournamentDescription"
+        class="form-control" 
+        placeholder="Enter Description"
+        value="<%= typeof tournamentDescription != 'undefined' ? tournamentDescription : '' %>"
+      />
+      <small class="form-text text-muted">Type detail information about your tournament.</small>
+    </div>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Tournament Type</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tournamentType" id="gridRadios1" value="Knockout" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Knockout
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tournamentType" id="gridRadios2" value="League">
+            <label class="form-check-label" for="gridRadios2">
+              League
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <input class="form-check-input" type="radio" name="tournamentType" id="gridRadios3" value="Group + Knockout">
+            <label class="form-check-label" for="gridRadios3">
+              Group + Knockout
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="form-group">
+        <label for="tournamentMaxParticipate">Maximum Participate</label>
+        <select name="tournamentMaxParticipate" class="form-control">
+          <option selected>4</option>
+          <option>8</option>
+          <option>16</option>
+          <option>32</option>
+          <option>64</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+      <label for="tournamentStartDate">Start Date</label>
+      <input 
+        type="date"
+        name="tournamentStartDate" 
+        class="form-control" 
+        placeholder="Select Date"
+        value="<%= typeof tournamentStartDate != 'undefined' ? tournamentStartDate : '' %>"
+      />
+      <small class="form-text text-muted">Choose the staring date of your tournament.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="tournamentEndDate">End Date (Optional)</label>
+      <input 
+        type="date"
+        name="tournamentEndDate" 
+        class="form-control" 
+        placeholder="Select Date"
+        value="<%= typeof tournamentEndDate != 'undefined' ? tournamentEndDate : '' %>"
+      />          
+    <small class="form-text text-muted">Choose the ending date of your tournament.</small>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create</button>
+
+  </form>
+
+  <br>
+  <br>
+  <br>
+    
+</body>
+</html>

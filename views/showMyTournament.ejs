@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title> <%= tournament.tournamentName %> </title>
+</head>
+<body>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/home"> <%= account.accountName %> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active" >
+            <a class="nav-link" href="/myTournaments">My Tournaments <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+
+  <br>
+  <br>
+
+    <div class="card" style="width: 60em;">
+      <div class="card-header" style="text-align: start;">
+        <div style="display: inline-block; color: dodgerblue;">
+          <%= tournament.tournamentType %> Tournament
+        </div>
+        <% if(tournament.tournamentStatus == 'Pending') { %> 
+          <div style="display: block; float: right;">
+            <p class="text-warning font-weight-bold">Pending</p>
+          </div>
+        <% } else if(tournament.tournamentStatus == 'Running') { %>
+          <div style="display: block; float: right;">
+            <p class="text-success font-weight-bold">Running</p>
+          </div>
+        <% } else { %>
+          <div style="display: block; float: right;">
+            <p class="text-danger font-weight-bold">Ended</p>
+          </div>
+        <% } %>  
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;"> <%= tournament.tournamentName %> </h5>
+        <br>
+        <p class="card-text">About: <%= tournament.tournamentDescription %> </p>
+        <h6 class="card-title"> Maximum participate: <%= tournament.tournamentMaxParticipate %> </h6>
+        <h6 class="card-title"> Created On: <%= tournament.tournamentCreateDate.toString() %> </h6>
+        <h6 class="card-title"> Start Date: <%= tournament.tournamentStartDate.toString() %> </h6>
+        <h6 class="card-title"> End Date: <%= tournament.tournamentEndDate.toString() %> </h6>
+        <br>
+        <div style="text-align: center;">
+          <% if(tournament.tournamentStatus != 'Ended') { %> 
+            <form action="/#" method="POST" style="display: inline-block;">
+              <input type="hidden" name="tournamentId" value= "<%= tournament.tournamentId %>">
+              <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+          <% } %> 
+          <% if(tournament.tournamentStatus == 'Pending') { %> 
+            <form action="/startMyTournament" method="POST" style="display: inline-block;">
+              <input type="hidden" name="tournamentId" value= "<%= tournament.tournamentId %>">
+              <button type="submit" class="btn btn-success">Start</button>
+            </form>
+          <% } else if(tournament.tournamentStatus == 'Running') { %>
+            <form action="/endMyTournament" method="POST" style="display: inline-block;">
+              <input type="hidden" name="tournamentId" value= "<%= tournament.tournamentId %>">
+              <button type="submit" class="btn btn-success">End</button>
+            </form>
+          <% } %> 
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <br>
+
+</body>
