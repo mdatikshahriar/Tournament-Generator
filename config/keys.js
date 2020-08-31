@@ -1,4 +1,4 @@
-dbPassword = 'mongodb+srv://mdatikshahriar:teamantares@cluster0-e4hqp.mongodb.net/test?retryWrites=true&w=majority';
+dbPassword = 'ENTER_YOUR_MONGODB_CONNECTION_STRING_HERE';
 
 module.exports = {
     mongoURI: dbPassword
